@@ -27,5 +27,19 @@ class Country{
         this.countryCode = b;
         this.isdCode = c;
     }
+    
+    public void setIsdCode(String x){
+        this.isdCode = x;
+    }
+    
+    public String toString(int typ) {
+    	String PrintString;
+    	if (typ == 1)
+    		PrintString = "Country{name=" + this.name + ", countryCode=" + this.countryCode + ", isdCode=" + this.isdCode + "}";
+    	else
+    		PrintString = "{name=" + this.name + ", isdCode=" + this.isdCode + "}";
+    	    		
+    	return PrintString;
+    }
+    
 }
-
