@@ -11,27 +11,56 @@ class CountryBO{
         int i=0, j = 0;
         while(countryCount > 0) {
             String cntName = countryList[i].getName();
-            System.out.println("Country names in array:-"+ cntName + "-");
-            System.out.println("Country names in array:-"+ countryName + "-");
             if (cntName.equals(countryName)){
-            	String pri = countryList[i].toString();
-                System.out.println("Found country" + countryList[i]);
+            	System.out.println(countryList[i].toString(1));
                 j = 1;
                 break;
                 }
             else {
                 countryCount--;
-                System.out.println("In else part");
+                //System.out.println("In else part");
             }
             i++;
         }
         if(j==0){
-            System.out.println("No country found");
+            System.out.println("Country by name " + countryName + " is not found");
         }
-        
+     
     }
-    public String toString() {
-    	Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
-    	gson.toJson(myObject);
+    
+    public void displayAllCountryDetails(Country[] countryList, int countryCount) {    	
+    	for(int ind=0;ind<countryCount;ind++) {
+    		System.out.println(countryList[ind].toString(1));
+   	 }
     }
+    public void displayAllCountryNameAndIsdCode(Country[] countryList, int countryCount) {
+    	for(int ind=0;ind<countryCount;ind++) {
+    		System.out.println(countryList[ind].toString(2));
+   	 }
+    	
+    }
+    
+    public void updateIsdCodeOfSpecificCountry(Country[] countryList, String countryName, String isdCode, int countryCount) {
+    	 int i=0, j = 0;
+         while(countryCount > 0) {
+             String cntName = countryList[i].getName();
+             if (cntName.equals(countryName)){
+             	countryList[i].setIsdCode(isdCode);
+                 j = 1;
+                 break;
+                 }
+             else {
+                 countryCount--;
+                 //System.out.println("In else part");
+             }
+             i++;
+         }
+         if(j==0){
+             System.out.println("Country by name " + countryName + " is not found");
+         }
+    	
+    }
+    
+    
+   
 }
